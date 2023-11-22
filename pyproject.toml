@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "network-live-v2"
+version = "0.1.0"
+description = "Kcell radio network contains own cells and cells shared by other operators. This project collect all cells to one db by RAN technologies"
+authors = ["Ramil Albakov <ramil.albakov2@gmail.com>"]
+readme = "README.md"
+packages = [{include = "network_live_v2"}]
+
+[tool.poetry.dependencies]
+python = ">=3.8.1,<4.0"
+
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.18.0"
+pytest = "^7.4.3"
+pytest-cov = "^4.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
