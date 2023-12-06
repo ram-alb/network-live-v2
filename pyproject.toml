@@ -4,11 +4,15 @@ version = "0.1.0"
 description = "Kcell radio network contains own cells and cells shared by other operators. This project collect all cells to one db by RAN technologies"
 authors = ["Ramil Albakov <ramil.albakov2@gmail.com>"]
 readme = "README.md"
-packages = [{include = "network_live_v2"}]
+packages = [{include = "network_live"}]
 
 [tool.poetry.dependencies]
 python = ">=3.8.1,<4.0"
+paramiko = "^3.3.1"
+python-dotenv = "^1.0.0"
 
+[tool.poetry.scripts]
+update-beeline-huawei-lte = "network_live.scripts.update_beeline_huawei_lte:main"
 
 [tool.poetry.group.dev.dependencies]
 wemake-python-styleguide = "^0.18.0"
