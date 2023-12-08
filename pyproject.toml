@@ -10,6 +10,7 @@ packages = [{include = "network_live"}]
 python = ">=3.8.1,<4.0"
 paramiko = "^3.3.1"
 python-dotenv = "^1.0.0"
+lxml = "^4.9.3"
 
 [tool.poetry.scripts]
 update-beeline-huawei-lte = "network_live.scripts.update_beeline_huawei_lte:main"
