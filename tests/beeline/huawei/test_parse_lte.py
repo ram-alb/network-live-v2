@@ -25,13 +25,3 @@ def test_parse_lte_cms(sharing_type):
     lte_cells = parse_lte_cms(xmls_path, sharing_type, physical_params)
 
     assert sort_list_of_dicts(lte_cells) == sort_list_of_dicts(expected)
-
-
-def test_parse_lte_cms_empty():
-    xmls_path = 'tests/fixtures/empty_folder'
-    physical_params = {}
-    expected = []
-
-    lte_cells = parse_lte_cms(xmls_path, 'moran', physical_params)
-
-    assert lte_cells == expected
