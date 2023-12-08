@@ -1,0 +1,98 @@
+{
+    "320360-100": {
+        "azimut": 40,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "320360-102": {
+        "azimut": 130,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "320360-104": {
+        "azimut": 220,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "320360-106": {
+        "azimut": 315,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L21_EKB_ippodrom-44": {
+        "azimut": 315,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L18_EKB_ippodrom-42": {
+        "azimut": 315,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L21_EKB_ippodrom-34": {
+        "azimut": 220,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L18_EKB_ippodrom-32": {
+        "azimut": 220,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L21_EKB_ippodrom-24": {
+        "azimut": 130,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L18_EKB_ippodrom-22": {
+        "azimut": 130,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L21_EKB_ippodrom-14": {
+        "azimut": 40,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L18_EKB_ippodrom-12": {
+        "azimut": 40,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L8_EKB_ippodrom-40": {
+        "azimut": 315,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L8_EKB_ippodrom-30": {
+        "azimut": 220,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L8_EKB_ippodrom-20": {
+        "azimut": 130,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    },
+    "L8_EKB_ippodrom-10": {
+        "azimut": 40,
+        "height": 33,
+        "longitude": 75.322342,
+        "latitude": 51.736499
+    }
+}
