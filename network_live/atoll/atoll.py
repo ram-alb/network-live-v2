@@ -1,7 +1,7 @@
 import os
 
 import cx_Oracle
-from network_live.atoll.sql_commands import atoll_selects
+from network_live.atoll.sql_commands import atoll_selects, network_live_inserts
 
 
 def execute_sql(sql_type, sql_command, sql_params=None):
@@ -66,3 +66,39 @@ def get_physical_params(technology):
             'latitude': latitude,
         }
     return physical_params
+
+
+def update_network_live(cells, oss, technology):
+    """
+    Update the Network Live for a specific technology and Operational Support System (OSS).
+
+    This function performs a two-step operation:
+    1. Deletes existing records in the Network Live table for the specified technology and OSS.
+    2. Inserts new records into the  Network Live table for the specified technology and OSS.
+
+    Args:
+        cells (list): List of cells to be inserted into the Network Live table.
+        oss (str): Operational Support System identifier.
+        technology (str): The technology for which the Netwrok Live data is to be updated
+
+    Returns:
+        str: A success or failure message indicating the result of the update operation.
+    """
+    network_live_tables = {
+        'LTE': 'ltecells2',
+        'WCDMA': 'wcdmacells2',
+        'GSM': 'gsmcells2',
+        'NR': 'nrcells',
+    }
+
+    delete_sql = "DELETE FROM {table} WHERE oss='{oss}'".format(
+        table=network_live_tables[technology],
+        oss=oss,
+    )
+
+    execute_sql('delete', delete_sql)
+    try:
+        execute_sql('insert', network_live_inserts[technology], cells)
+    except cx_Oracle.Error:
+        return f'{technology} {oss} Fail'
+    return f'{technology} {oss} Success'

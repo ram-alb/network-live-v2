@@ -1,11 +1,14 @@
 import os
+from datetime import date
 
 from lxml import etree
+from network_live.atoll.atoll import update_network_live
 from network_live.beeline.huawei.huawei_utils import (
     get_cell_physical_params,
     get_tag,
     parse_descendant_text,
 )
+from network_live.ftp import download_ftp_cm
 
 max_moran_cell_id = 131
 
@@ -76,6 +79,8 @@ def parse_cell_params(root, sharing_type):
         cell['oss'] = 'Beeline Huawei'
         cell['subnetwork'] = 'Beeline'
         cell['vendor'] = 'Huawei'
+        cell['cellRange'] = None
+        cell['primaryPlmnReserved'] = None
         cells.append(cell)
 
     return list(
@@ -225,6 +230,7 @@ def parse_xml(xml_path, sharing_type, physical_params):
             Tag.ne_name,
         )
         lte_cell['eci'] = calculate_eci(cell_id, lte_cell['enodeb_id'])
+        lte_cell['insert_date'] = date.today()
         lte_cells.append(lte_cell)
 
     return lte_cells
@@ -247,3 +253,22 @@ def parse_lte_cms(xmls_path, sharing_type, physical_params):
         xml_path = os.path.join(xmls_path, cm_file)
         cells.extend(parse_xml(xml_path, sharing_type, physical_params))
     return cells
+
+
+def lte_main(physical_params):
+    """
+    Update Network Live with Beeline Huawei LTE cells.
+
+    Args:
+        physical_params (dict): A dictionary containing physical parameters.
+
+    Returns:
+        str: A Network Live update result.
+    """
+    xmls_path = download_ftp_cm('beeline_huawei_moran')
+    lte_cells = parse_lte_cms(xmls_path, 'moran', physical_params)
+
+    xmls_path = download_ftp_cm('beeline_huawei_mocn')
+    lte_cells.extend(parse_lte_cms(xmls_path, 'mocn', physical_params))
+
+    return update_network_live(lte_cells, 'Beeline Huawei', 'LTE')

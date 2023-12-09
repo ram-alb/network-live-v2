@@ -1,13 +1,20 @@
-from network_live.ftp import download_ftp_cm
+from network_live.beeline.huawei.lte import lte_main
 
 
-def main(sharing_type):
+def main(technology, physical_params):
     """
-    Update Network Live db with data from Beeline Huawei cm files.
+    Update Network Live with Beeline Huawei cells.
 
     Args:
-        sharing_type (str): A type of RAN sharing technology (MORAN or MOCN)
-    """
-    operator = f'beeline_huawei_{sharing_type}'
+        technology (str): A RAN technology (LTE, WCDMA, GSM and etc).
+        physical_params (dict): A dictionary containing physical parameters.
 
-    download_ftp_cm(operator)
+    Returns:
+        str: A Network Live update result.
+    """
+    main_funcs = {
+        'LTE': lte_main,
+    }
+
+    main_func = main_funcs[technology]
+    return main_func(physical_params)
