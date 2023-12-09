@@ -18,7 +18,9 @@
         "azimut": 315,
         "height": 33,
         "longitude": 75.322342,
-        "latitude": 51.736499
+        "latitude": 51.736499,
+        "cellRange": null,
+        "primaryPlmnReserved": null
     },
     {
         "oss": "Beeline Huawei",
@@ -39,7 +41,9 @@
         "azimut": 220,
         "height": 33,
         "longitude": 75.322342,
-        "latitude": 51.736499
+        "latitude": 51.736499,
+        "cellRange": null,
+        "primaryPlmnReserved": null
     },
     {
         "oss": "Beeline Huawei",
@@ -60,7 +64,9 @@
         "azimut": 130,
         "height": 33,
         "longitude": 75.322342,
-        "latitude": 51.736499
+        "latitude": 51.736499,
+        "cellRange": null,
+        "primaryPlmnReserved": null
     },
     {
         "oss": "Beeline Huawei",
@@ -81,6 +87,8 @@
         "azimut": 40,
         "height": 33,
         "longitude": 75.322342,
-        "latitude": 51.736499
+        "latitude": 51.736499,
+        "cellRange": null,
+        "primaryPlmnReserved": null
     }
 ]
