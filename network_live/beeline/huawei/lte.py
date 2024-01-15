@@ -3,6 +3,7 @@ from datetime import date
 
 from lxml import etree
 from network_live.atoll.atoll import update_network_live
+from network_live.beeline.extra_cells import extra_cells
 from network_live.beeline.huawei.huawei_utils import (
     get_cell_physical_params,
     get_tag,
@@ -210,9 +211,12 @@ def parse_xml(xml_path, sharing_type, physical_params):
 
     lte_cells = []
     for cell in cell_params:
+        cell_name = cell['cell_name']
+        if cell_name in extra_cells:
+            continue
         cell_id = cell['cellId']
         cell_physical_params = get_cell_physical_params(
-            cell['cell_name'],
+            cell_name,
             physical_params,
         )
         lte_cell = {**cell, **cell_physical_params}
