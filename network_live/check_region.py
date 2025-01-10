@@ -1,6 +1,5 @@
 import geopandas as gpd
 from shapely.geometry import Point
-import os
 
 
 def read_udrs():

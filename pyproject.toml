@@ -14,6 +14,7 @@ lxml = "^4.9.3"
 cx-oracle = "^8.3.0"
 fiona = "1.9.6"
 geopandas = "0.12.2"
+point-in-region = {git = "git@gitlab.kcell.kz:nds-rnpou-rnsd-team/point-in-region.git"}
 
 [tool.poetry.scripts]
 update-beeline-huawei-lte = "network_live.scripts.update_beeline_huawei_lte:main"

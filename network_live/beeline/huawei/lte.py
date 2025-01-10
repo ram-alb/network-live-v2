@@ -10,7 +10,7 @@ from network_live.beeline.huawei.huawei_utils import (
     parse_descendant_text,
 )
 from network_live.ftp import download_ftp_cm
-from network_live.check_region import read_udrs, add_region
+from point_in_region import find_region_by_coordinates
 
 max_moran_cell_id = 131
 
@@ -203,7 +203,6 @@ def parse_xml(xml_path, sharing_type, physical_params):
     Returns:
         list: A list of dictionaries representing parsed LTE cells.
     """
-    udrs = read_udrs()
     root = etree.parse(xml_path).getroot()
     try:
         cell_params = parse_cell_params(root, sharing_type)
@@ -237,7 +236,15 @@ def parse_xml(xml_path, sharing_type, physical_params):
         )
         lte_cell['eci'] = calculate_eci(cell_id, lte_cell['enodeb_id'])
         lte_cell['insert_date'] = date.today()
-        lte_cells.append(add_region(lte_cell, udrs))
+        lte_cell['txNumber'] = None
+        lte_cell['rxNumber'] = None
+        try:
+            lte_cell['region'] = find_region_by_coordinates(
+                (lte_cell['longitude'], lte_cell['latitude']),
+            )
+        except TypeError:
+            lte_cell['region'] = None
+        lte_cells.append(lte_cell)
 
     return lte_cells
 

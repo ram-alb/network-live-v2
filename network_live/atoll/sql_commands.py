@@ -79,7 +79,9 @@ lte_insert = """
         :latitude,
         :insert_date,
         :primaryPlmnReserved,
-        :region
+        :region,
+        :txNumber,
+        :rxNumber
     )
 """
 
